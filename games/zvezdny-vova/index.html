@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#090615">
+  <meta name="description" content="Звёздный Вова — браузерная космическая аркада.">
+  <title>Звёздный Вова — VovaGames</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <main class="game-page">
+    <nav><a href="../../">← Все игры</a><span>VovaGames</span></nav>
+    <section class="game-shell" aria-label="Игра Звёздный Вова">
+      <header>
+        <div class="brand"><span class="brand-star">★</span><div><small>Космическая игра</small><h1>Звёздный Вова</h1></div></div>
+        <div class="stats">
+          <div><small>Счёт</small><strong id="score">0</strong></div>
+          <div><small>Рекорд</small><strong id="best">0</strong></div>
+          <div><small>Жизни</small><strong id="lives" aria-label="3 жизни">♥♥♥</strong></div>
+        </div>
+      </header>
+      <div class="arena" id="arena">
+        <div class="nebula one"></div><div class="nebula two"></div>
+        <div class="star-field" aria-hidden="true"></div>
+        <div class="ship" id="ship"><div class="window">В</div><div class="flame"></div></div>
+        <div class="overlay" id="overlay">
+          <div class="planet">★</div>
+          <h2 id="message">Поймай как можно больше звёзд!</h2>
+          <p>Собирай золотые звёзды и уклоняйся от метеоритов.</p>
+          <button id="start">Играть <span>→</span></button>
+        </div>
+      </div>
+      <footer>
+        <button class="control" id="left" aria-label="Двигаться влево">←</button>
+        <p><b>Управление</b><span>← →</span> или <span>A D</span></p>
+        <button class="control" id="right" aria-label="Двигаться вправо">→</button>
+      </footer>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
+
