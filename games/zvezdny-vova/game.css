@@ -1,0 +1,46 @@
+:root { color-scheme: dark; --gold:#ffd85a; --purple:#8256ff; --pink:#ff5f9f; }
+* { box-sizing:border-box; touch-action:manipulation; }
+html,body { min-height:100%; }
+body { margin:0; color:#f8f5ff; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:radial-gradient(circle at 50% 0,#2a1751,#080611 55%); }
+.game-page { width:min(1040px,calc(100% - 24px)); margin:auto; padding:20px 0 40px; }
+nav { display:flex; justify-content:space-between; margin:0 4px 18px; color:#a69bbf; font-size:.84rem; }
+nav a { color:inherit; text-decoration:none; }
+.game-shell { overflow:hidden; border:1px solid rgba(255,255,255,.14); border-radius:28px; background:#141026; box-shadow:0 30px 100px rgba(0,0,0,.55); }
+header { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px 26px; }
+.brand { display:flex; align-items:center; gap:13px; }
+.brand-star { display:grid; place-items:center; width:48px; aspect-ratio:1; border-radius:16px; color:#2c1646; font-size:1.7rem; background:linear-gradient(145deg,#fff3a7,#ff8f65); box-shadow:0 8px 24px rgba(255,216,90,.25); }
+.brand small,.stats small { display:block; color:#9e93ba; font-size:.63rem; font-weight:800; text-transform:uppercase; letter-spacing:.12em; }
+h1 { margin:2px 0 0; font-size:clamp(1.25rem,3vw,2rem); letter-spacing:-.04em; }
+.stats { display:flex; gap:clamp(14px,4vw,42px); text-align:center; }
+.stats strong { display:block; margin-top:3px; font-size:1.3rem; }
+#lives { color:var(--pink); letter-spacing:2px; }
+.arena { position:relative; height:min(65vh,620px); min-height:430px; overflow:hidden; isolation:isolate; border-block:1px solid rgba(255,255,255,.1); background:linear-gradient(#080713,#130d2a 70%,#2b174c); }
+.star-field { position:absolute; inset:0; opacity:.7; background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(var(--gold) 1px,transparent 2px); background-size:49px 49px,83px 83px; background-position:0 0,18px 27px; }
+.nebula { position:absolute; width:360px; height:180px; border-radius:50%; filter:blur(50px); opacity:.23; }
+.nebula.one { left:-100px; top:50px; background:#7b4dff; }
+.nebula.two { right:-100px; bottom:20px; background:#ff4d9a; }
+.ship { position:absolute; z-index:4; left:50%; bottom:7%; width:76px; height:92px; border-radius:60% 60% 42% 42%; background:linear-gradient(145deg,#fff,#bba6ff); transform:translateX(-50%); transition:left .08s linear; box-shadow:0 13px 28px rgba(130,86,255,.45); }
+.ship::before,.ship::after { content:""; position:absolute; bottom:8px; width:24px; height:40px; background:#7552db; }
+.ship::before { left:-16px; border-radius:70% 0 0 35%; transform:skewY(-25deg); }
+.ship::after { right:-16px; border-radius:0 70% 35% 0; transform:skewY(25deg); }
+.window { position:absolute; top:16px; left:50%; display:grid; place-items:center; width:38px; aspect-ratio:1; border:5px solid #eee8ff; border-radius:50%; color:#fff; font-weight:900; background:linear-gradient(145deg,#4ee7ff,#674ddd); transform:translateX(-50%); }
+.flame { position:absolute; left:50%; bottom:-24px; width:25px; height:34px; border-radius:0 0 50% 50%; background:linear-gradient(#fff9a9,#ff8b3d 50%,transparent); transform:translateX(-50%); animation:flicker .14s infinite alternate; }
+.drop { position:absolute; z-index:3; display:grid; place-items:center; width:48px; aspect-ratio:1; font-size:2.1rem; transform:translate(-50%,-50%); will-change:top; }
+.drop.star { color:var(--gold); filter:drop-shadow(0 0 10px var(--gold)); }
+.drop.rock { color:#a493b7; filter:drop-shadow(3px 5px 3px rgba(0,0,0,.5)); }
+.overlay { position:absolute; z-index:8; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:25px; text-align:center; background:rgba(7,5,18,.72); backdrop-filter:blur(7px); }
+.overlay.hidden { display:none; }
+.overlay .planet { display:grid; place-items:center; width:86px; aspect-ratio:1; border-radius:50%; color:#3d225c; font-size:2.5rem; background:linear-gradient(145deg,#fff2a5,#ff6da4); box-shadow:0 0 45px rgba(255,95,159,.35); }
+.overlay h2 { max-width:620px; margin:22px 0 8px; font-size:clamp(1.8rem,5vw,3.8rem); line-height:1; letter-spacing:-.055em; }
+.overlay p { margin:0 0 24px; color:#b5aacb; }
+.overlay button { display:flex; gap:28px; align-items:center; padding:15px 22px; border:0; border-radius:14px; color:white; font:inherit; font-weight:900; background:linear-gradient(135deg,var(--pink),var(--purple)); cursor:pointer; box-shadow:0 12px 32px rgba(130,86,255,.35); }
+footer { display:flex; align-items:center; justify-content:center; gap:22px; padding:17px; }
+footer p { margin:0; color:#9e93ba; font-size:.82rem; text-align:center; }
+footer p b { display:block; color:white; margin-bottom:3px; }
+footer p span { color:var(--gold); font-weight:800; }
+.control { display:grid; place-items:center; width:52px; aspect-ratio:1; border:1px solid rgba(255,255,255,.16); border-radius:15px; color:white; font-size:1.4rem; background:rgba(255,255,255,.07); cursor:pointer; }
+.control:active { background:rgba(130,86,255,.35); transform:scale(.96); }
+@keyframes flicker { to { height:27px; opacity:.78; } }
+@media(max-width:640px){.game-page{width:100%;padding:0}.game-shell{border-radius:0;border-inline:0}nav{padding:12px;margin:0}header{padding:14px}.brand-star{width:40px}.stats{gap:12px}.stats small{font-size:.54rem}.stats strong{font-size:1rem}.arena{height:calc(100vh - 190px);min-height:420px}footer{padding:10px}.control{width:48px}}
+@media(prefers-reduced-motion:reduce){.flame{animation:none}.ship{transition:none}}
+
