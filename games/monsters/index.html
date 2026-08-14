@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#08080a">
+  <meta name="description" content="MONSTERS: Сфера времени — авторская игра Вовы.">
+  <title>MONSTERS — VovaGames</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <main class="page">
+    <nav><a href="../../">← Все игры</a><span>VovaGames</span></nav>
+    <section class="frame">
+      <header><div class="logo"><span>01</span><div><b>MONSTERS</b><small>СФЕРА ВРЕМЕНИ</small></div></div><div class="objective"><small>ЦЕЛЬ</small><b id="objective">Доберитесь до разрыва</b></div></header>
+      <div class="viewport">
+        <canvas id="game" width="960" height="540" aria-label="Игровое поле"></canvas>
+        <div class="panel hero" id="menu"><div class="copy"><p>АВТОРСКАЯ ИГРА ВОВЫ</p><h1>MONSTERS</h1><h2>СФЕРА ВРЕМЕНИ</h2><em>Два мира столкнулись. Один воин хочет переписать прошлое.</em><button data-screen="story">НАЧАТЬ ИГРУ →</button></div></div>
+        <div class="panel story hidden" id="story"><div class="card"><span>ПРОЛОГ · ЛОНУС</span><h2>«Мы всё умрём!»</h2><p>Над светлым миром остановились все часы. Кан увидел красный разрыв — и понял, что Сфера времени пробудилась.</p><button id="start">ВОЙТИ В РАЗРЫВ</button></div></div>
+        <div class="hud hidden" id="hud"><div class="bars"><label>КАН <span id="hpText">100%</span></label><i><b id="hp"></b></i><label class="red">ЯРОСТЬ <span id="rageText">25%</span></label><i><b class="redbar" id="rage"></b></i></div><div class="item"><small>ОРУЖИЕ · Q</small><b id="weapon">Копьё</b></div><div class="item"><small>ОСКОЛКИ</small><b id="shards">◆ 0</b></div></div>
+        <div class="panel ending hidden" id="ending"><div class="card"><span id="endLabel"></span><h2 id="endTitle"></h2><p id="endText"></p><button id="restart">ЕЩЁ РАЗ</button></div></div>
+      </div>
+      <footer><div class="keys"><span>A D — движение</span><span>W — прыжок</span><span>J — атака</span><span>Q — оружие</span><span>E — монстр</span></div><div class="touch"><button data-key="KeyA">←</button><button data-key="KeyD">→</button><button data-key="KeyW">↑</button><button id="attack">УДАР</button><button id="swap">СМЕНА</button><button id="monster">МОНСТР</button></div></footer>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
+
